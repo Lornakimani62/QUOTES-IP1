@@ -1,0 +1,43 @@
+<!-- Nav bar starts here -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-custom bg-light">
+
+  <a class="navbar-brand" href="#"><img src="src/assets/images.png" alt="" width=130px; heigth=80px;></a>
+    <div class="collapse navbar-collapse">
+      <h4>Inspirational Leadership Quotes</h4>&nbsp;&nbsp;
+
+      <ul class="navbar-nav ml-auto px-4 display-5 ">
+        <li class="nav-item">
+          <a class="nav-link" href="#Post">Post Quote <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#View">View Quote</a>
+        </li>
+      </ul>
+    </div>
+</nav>
+                          <br><br>
+<!-- Nav bar ends here  -->
+<!-- Input form starts here -->
+  <div class="container">
+    <div id="Post">
+      <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
+    </div>
+  <!--  input ends here-->
+
+  <!--  output starts here(Display Quotes)-->
+   <div id="View">
+     <div class="row"><h1>Quote Posts</h1>
+  </div>
+         <div class="jumbotron" *ngFor = 'let quote of userQuotes, let i = index'>
+
+             <h2>"{{quote.description}}"</h2>
+              <span><h4>{{quote.author}}</h4></span>
+            <br>
+              <button class="btn btn-primary" (click)='toogleDetails(i)'>See Details</button>
+                              <br><br>
+                <app-quote-details *ngIf ="quote.showDetails"[quote]='quote'  (isComplete)= 'deleteQuote($event,i)'></app-quote-details>
+              </div>
+
+<!-- output ends here -->
+
+</div>

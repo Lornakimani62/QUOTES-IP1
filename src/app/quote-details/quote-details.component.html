@@ -1,0 +1,5 @@
+<p>This quote was posted {{quote.completeDate|datecount}} days ago by {{quote.userName}}</p>
+<button class="btn btn-primary" (click) ='upvote()'>Like:{{quote.upvote}}</button>
+<button class="btn btn-danger" (click)='downvote()'>Unlike:{{quote.downvote}}</button>
+<hr>
+<button class="btn btn-danger" (click) ='quoteDelete(true)'>Delete</button>
